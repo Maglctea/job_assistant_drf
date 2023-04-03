@@ -1,0 +1,24 @@
+{% extends 'landingapp/base.html' %}
+{% load static %}
+
+{% block head_title %}Job Assistant{% endblock %}
+
+{% block style %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Assistant</title>
+
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="main_error">
+            <h2 class="error_title">Упс! Что-то пошло не так!</h2>
+            <div class="error_img"></div>
+            <div class="error_txt">
+                <p>Попробуйте вернуться на главную</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'userapp',
     'vacancyapp',
     'resumeapp',
+    'landingapp',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +157,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
 }
+
+# SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.spaceweb.ru'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = os.getenv('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = f'Fortuhost <{EMAIL_HOST_USER}>'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False

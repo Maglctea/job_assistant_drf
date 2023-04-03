@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Assistant</title>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'landingapp/img/LogoJA.svg' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,800&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'landingapp/css/style.css' %}">
+
+    <!-- <link href="css/styleModal.css" rel="stylesheet" type="text/css"> -->
+
+
+    {% block style %}
+    {% endblock %}
+
+</head>
+<body>
+<header class="header">
+    <div class="logoshape wrap">
+        <a href="#" class="logo_link"><img src="{% static 'landingapp/img/LogoJA.svg' %}" alt="Job assistant logo"
+                                           class="JALogo_pic"></a>
+    </div>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer class="footer">
+    <div class="footer-wrap wrap">
+        <div class="contacts">
+            <p>Контакты<br>1234567@mail.ru</p>
+        </div>
+        <div class="copyright">
+            <p>Автор изображений <a href="https://ru.freepik.com/author/upklyak" target="_blank">upklyak</a></p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

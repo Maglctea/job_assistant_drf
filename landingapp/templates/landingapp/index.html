@@ -1,0 +1,271 @@
+{% extends 'landingapp/base.html' %}
+{% load static %}
+
+{% block head_title %}Job Assistant{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="promo wrap">
+            <div class="top_text">
+                <div class="top_text_l text-focus-in2">
+                    <p>Тратишь время на просмотр<br>вакансий?</p>
+                </div>
+                <div class="top_text_r text-focus-in3">
+                    <p>Видишь одни и те же вакансии<br>в разных источниках?</p>
+                </div>
+            </div>
+            <div class="pictures_wrap ">
+            </div>
+            <div class="bottom_text">
+                <div class="bottom_text_l text-focus-in1">
+                    <p>Переходишь с одного сайта<br>по поиску работы на другой?
+                    <p>
+                </div>
+                <div class="bottom_text_r text-focus-in4">
+                    <p>Ищешь работу?<br>Опереди всех с JobAssistant!
+                    <p>
+                </div>
+            </div>
+        </div>
+        <div class="main_titles wrap">
+            <div>
+                <h2>У нас ты найдешь:</h2>
+                <ul class="main_list">
+                    <li>
+                        <div class="main_list_marker"></div>
+                        <p>Твои уникальные вакансии в одном месте!</p>
+                    </li>
+                    <li>
+                        <div class="main_list_marker"></div>
+                        <p>Твой шанс быть замеченным!</p>
+                    </li>
+                    <li>
+                        <div class="main_list_marker"></div>
+                        <p>Услуга "Автоматизированный отклик на вакансии"!</p>
+                    </li>
+                    <li>
+                        <div class="main_list_marker"></div>
+                        <p>Ты в топе у рекрутеров!</p>
+                    </li>
+                    <li>
+                        <div class="main_list_marker"></div>
+                        <p>Свою работу мечты!</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="main_titles_last">
+                <p>Заполни заявку, получи спецпредложение<br>на «Автоматизированный отклик на вакансии»
+                    найди работу мечты!
+                </p>
+            </div>
+        </div>
+        <div class="wrap_button_landing wrap">
+            <button class="button_landing" onclick="openForm()">Оставить заявку</button>
+            <div class="popup" id="popup">
+                <div class="popup__container scale-in-ver-top">
+                    <div id="application" class="application">
+                        <div class="application_top">
+                            <div class="logoshape logo_app">
+                                <a href="#" onclick="closeForm()" class="logo_link"><img
+                                        src="{% static 'landingapp/img/LogoJA.svg' %}"></a>
+                            </div>
+                            <div class="close_down" onclick="closeForm()">
+                                <svg width="32" height="31" viewBox="0 0 32 31" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="2.41409" y1="1.01885" x2="30.2294" y2="29.5859" stroke="#161616"
+                                          stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="1.7707" y1="29.5859" x2="29.586" y2="1.01886" stroke="#161616"
+                                          stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+
+                            </div>
+                        </div>
+                        <form class="app_form" action="" autocomplete="off" method="POST" id="customForm">
+                            {% csrf_token %}
+                            <h2>Заявка</h2>
+                            <label>Ваше имя</label>
+                            <input type="text" name="name" placeholder="Мария" required>
+                            <label>E-mail</label>
+                            <input id="mark" type="email" name="email" placeholder="marija@mail.ru" required>
+                            {##}
+                            <button type="button" class="btn btn-success btn_app" id="customButton"
+                                    onclick="postForm()">Отправить
+                                <!--                                onclick="setTimeout(()=>showThanks(),2000)"-->
+
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup" id="popup_thanks">
+                <div class="popup__container scale-in-ver-top">
+                    <div id="thanks">
+                        <div class="application_top">
+                            <div class="logoshape logo_app">
+                                <a href="#" onclick="closeThanks()" class="logo_link"><img
+                                        src="{% static 'landingapp/img/LogoJA.svg' %}"></a>
+                            </div>
+                            <div class="close_down" onclick="closeThanks()">
+                                <svg width="32" height="31" viewBox="0 0 32 31" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="2.41409" y1="1.01885" x2="30.2294" y2="29.5859" stroke="#161616"
+                                          stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="1.7707" y1="29.5859" x2="29.586" y2="1.01886" stroke="#161616"
+                                          stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+
+                            </div>
+                        </div>
+                        <div class="thanks_txt">
+                            <p>Спасибо!</p>
+                            <p class="thanks_p">Ваши данные отправлены!</p>
+                            <p>Мы обязательно с Вами свяжемся </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_info wrap">
+            <div class="about about_us">
+                <h2>О нас</h2>
+                <div class="paragraphs">
+                    <p>Мы команда разработчиков, которая столкнулось с проблемой поиска работы. Именно поэтому мы решили
+                        создать универсальный продукт JobAssistant, который поможет быстрее найти работу, потратив
+                        минимум
+                        времени.</p>
+                    <p>Наша команда обладает многими навыками, которые помогли нам создать программное обеспечение для
+                        автоматизации многих процессов при поиске работы.</p>
+                    <p>Мы понимаем все процессы и сложности разработки продукта, именно поэтому всегда взаимодействуем с
+                        пользователями и улучшаем свой сервис. Мы отдаем себе отчет, что берем на себя большую
+                        ответственность при разработке сервиса, поэтому применяем самые лучшие практики разработки
+                        программного обеспечения.</p>
+                </div>
+            </div>
+            <div class="about about_ja">
+                <h2>О JobAssistant</h2>
+                <div class="paragraphs">
+                    <p>JobAssistant - это автоматизированный сервис поиска работы, который позволяет экономить ваше
+                        время. В нашем сервисе вы не встретите двух одинаковых вакансий, т.к. все они тщательно
+                        отбираются нашей
+                        программой. Тут вы можете подключить авто-отклик и не тратить часы на просмотры вакансий или
+                        сомнения, а
+                        подходит ли мне эта вакансия. А все потому, что перед тем, как показать вам вакансии, проводится
+                        анализ
+                        вашего резюме. С помощью нашего сервиса, вы будете в числе первых откликнувшихся на вакансию.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="advantages ">
+            <div class="advantages_title">
+                <h2>Почему стоит выбирать нас</h2>
+            </div>
+            <div class="advantages_img"></div>
+            <div class="advantages_items wrap">
+                <div class="advantages_card_1 advantages_c">
+                    <div class="advantages_card">
+                        <p>Проводим полный анализ вакансий на соответствие твоему резюме</p>
+                    </div>
+                    <div class="advantages_card">
+                        <p>Помощь по написанию резюме</p>
+                    </div>
+                </div>
+                <div class="advantages_card_2 advantages_c">
+                    <div class="advantages_card">
+                        <p>Возможность настройки авто-откликов, что значительно экономит время</p>
+                    </div>
+                    <div class="advantages_card">
+                        <p>Предоставление консультации от ректутера</p>
+                    </div>
+                </div>
+            </div>
+            <div class="advantages_text wrap">
+                <p>Оставив заявку сейчас ты получишь гарантированную скидку в 50% на стоимость продвинутого уровня по
+                    поиску работы. Почему именно так? На данный момент JobAssistant готовится к своему запуску и уже
+                    летом 2023 года начнет свою работу.</p>
+
+            </div>
+        </div>
+        <div class="wrap_button_landing wrap">
+            <button class="button_landing" onclick="openForm()">Оставить заявку</button>
+        </div>
+        <div class="jobs wrap">
+            <h2>Вакансии</h2>
+            <div class="jobs_items">
+                <div class="jobs_card">
+                    <p class="profession">Аналитик</p>
+                    <p>Зарплата</p>
+                    <p class="salary">от 40000 до 150000</p>
+                </div>
+                <div class="jobs_card">
+                    <p class="profession">Аналитик</p>
+                    <p>Зарплата</p>
+                    <p class="salary">от 40000 до 150000</p>
+                </div>
+                <div class="jobs_card">
+                    <p class="profession">Аналитик</p>
+                    <p>Зарплата</p>
+                    <p class="salary">от 40000 до 150000</p>
+                </div>
+                <div class="jobs_card">
+                    <p class="profession">Аналитик</p>
+                    <p>Зарплата</p>
+                    <p class="salary">от 40000 до 150000</p>
+                </div>
+
+                <div class="jobs_card">
+                    <p class="profession">Аналитик</p>
+                    <p>Зарплата</p>
+                    <p class="salary">от 40000 до 150000</p>
+                </div>
+                <div class="jobs_card">
+                    <p class="profession">Аналитик</p>
+                    <p>Зарплата</p>
+                    <p class="salary">от 40000 до 150000</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function openForm() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function showThanks() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("popup_thanks").style.display = "block";
+        }
+
+        function closeThanks() {
+            document.getElementById("popup_thanks").style.display = "none";
+        }
+
+        async function postForm() {
+            form = document.getElementById("customForm")
+            {#form.addEventListener("submit", (e) => {#}
+
+            form_data = new FormData(form)
+
+            const response = await fetch('/', {
+                method: "POST",
+                body: form_data,
+            })
+
+            {#const result = await response.json();#}
+
+            {#console.log(result)#}
+            showThanks()
+
+        }
+
+
+    </script>
+{% endblock %}
